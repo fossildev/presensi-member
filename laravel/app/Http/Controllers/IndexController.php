@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Murid;
+use App\Riwayat;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -18,6 +19,7 @@ class IndexController extends Controller
             );
         }
         $jumlah_murid = Murid::count('id');
-        return view('welcome', compact('jumlah_murid', 'json'));
+        $jumlah_presensi = Riwayat::count('id');
+        return view('welcome', compact('jumlah_murid','jumlah_presensi' ,'json'));
     }
 }

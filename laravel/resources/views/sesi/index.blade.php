@@ -24,7 +24,7 @@
                 <table id="tabel-kelas" width="100%" class="table table-hover table-striped table-lightfont">
                     <thead>
                     <tr>
-                        <th>ID#</th>
+                        <!-- <th>ID#</th> -->
                         <th>Hari</th>
                         <th>Jam Mulai</th>
                         <th>Jam Selesai</th>
@@ -33,7 +33,7 @@
                     </thead>
                     <tfoot>
                     <tr>
-                        <th>ID#</th>
+                        <!-- <th>ID#</th> -->
                         <th>Nama Kelas</th>
                         <th>Keterangan</th>
                         <th>Action</th>
@@ -60,7 +60,6 @@
                 serverSide: true,
                 ajax: '{{ route('dt-sesi') }}',
                 columns: [
-                    {data: 'id', name: 'id'},
                     {data: 'hari', name: 'hari'},
                     {data: 'jam_mulai', name: 'jam_mulai'},
                     {data: 'jam_selesai', name: 'jam_selesai'},

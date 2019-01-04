@@ -28,8 +28,8 @@
                         </div>
                         <div class="col-sm-6">
                             <a class="element-box el-tablo" href="#">
-                                <div class="label">Presensi</div>
-                                <div class="value">10</div>
+                                <div class="label">Kehadiran Minggu Ini</div>
+                                <div class="value">{{ $jumlah_presensi }}</div>
 
                             </a>
                         </div>
