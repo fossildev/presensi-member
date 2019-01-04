@@ -13,17 +13,12 @@
                        title="Edit">
                         <i class="os-icon os-icon-edit-1"></i>
                     </a>
-                    <span data-toggle="modal" data-target="exampleModal1">
-                    <a href="" id="btn-poin" data-toggle="tooltip" data-placement="top" title="Hapus Data">
-                        <i class="os-icon os-icon-ui-15"></i>
+                    <!-- <span data-toggle="modal" data-target="exampleModal1">
+                    <a href="" id="btn-poin" data-toggle="tooltip" data-placement="top" title="Tambah Poin">
+                        <i class="os-icon os-icon-ui-02"></i>
                     </a>
-                    </span>
+                    </span> -->
 
-                    <!-- <form method="POST" action="{{ route('murid.destroy', [$murid->id]) }}">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                        <button type="submit" class="btn btn-outline-danger btn-sm poin-btn"><i class="os-icon os-icon-ui-15"></i></a>
-                    </form> -->
                 </div>
                 <div class="up-main-info">
                     <div class="user-avatar-w">
@@ -172,21 +167,22 @@
          tabindex="-1" aria-hidden="true" data-backdrop="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">Hapus Data ID {{ ucwords(strtolower($murid->id)) }}</h5>
+                <!-- <div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">Tambah Poin</h5>
                     <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
                                 aria-hidden="true"> ×</span></button>
-                </div>
-                <form method="POST" action="{{ route('murid.destroy', [$murid->id]) }}">
+                </div> -->
+                <form method="post" action="{{ route('poin.store') }}">
                     <div class="modal-body">
 
-                    Data murid bernama {{ ucwords(strtolower($murid->nama_lengkap)) }} dengan ID {{ ucwords(strtolower($murid->id)) }} akan dihapus.
+                        <div class="form-group"><label for=""> Keterangan</label><input
+                                    class="form-control" placeholder="Keterangan" name="keterangan" type="text"></div>
+                        <input type="hidden" name="murid_id" value="{{ $murid->id }}">
                         {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
 
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" data-dismiss="modal"> Batal</button>
-                        <button class="btn btn-primary" type="submit"> Hapus</button>
+                        <button class="btn btn-secondary" data-dismiss="modal"> Close</button>
+                        <button class="btn btn-primary" type="submit"> Save changes</button>
                     </div>
                 </form>
             </div>
@@ -196,10 +192,10 @@
          tabindex="-1" aria-hidden="true" data-backdrop="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">Tambah Poin</h5>
+                <!-- <div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">Tambah Poin</h5>
                     <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
                                 aria-hidden="true"> ×</span></button>
-                </div>
+                </div> -->
 
                 <div class="modal-body">
                     <div class="table-responsive">
@@ -231,31 +227,31 @@
             </div>
         </div>
     </div>
-    <script>
-        // $(function () {
-        //     $('#history-table').css('text-transform', 'capitalize').DataTable({
-        //         pagingType: "simple_numbers",
-        //         paging: true,
-        //         pageLength: 25,
-        //         order: [[0, "asc"]],
-        //         processing: true,
-        //         serverSide: true,
-        //         ajax: '{{ route('dl-murid', $murid->id) }}',
-        //         columns: [
-        //             {data: 'created_at', name: 'created_at'},
-        //             {data: 'poin', name: 'poin'},
-        //             {data: 'keterangan', name: 'keterangan'}
-        //         ]
-        //     });
-        // });
+    <!-- <script>
+        $(function () {
+            $('#history-table').css('text-transform', 'capitalize').DataTable({
+                pagingType: "simple_numbers",
+                paging: true,
+                pageLength: 25,
+                order: [[0, "asc"]],
+                processing: true,
+                serverSide: true,
+                ajax: '{{ route('dt-poin-history', $murid->id) }}',
+                columns: [
+                    {data: 'created_at', name: 'created_at'},
+                    {data: 'poin', name: 'poin'},
+                    {data: 'keterangan', name: 'keterangan'}
+                ]
+            });
+        });
         $('#btn-poin').click(function (e) {
             e.preventDefault();
             $('#exampleModal1').modal()
         });
-        // $('#btn-history').click(function (e) {
-        //     e.preventDefault();
-        //     $('#exampleModal2').modal()
-        // });
+        $('#btn-history').click(function (e) {
+            e.preventDefault();
+            $('#exampleModal2').modal()
+        });
 
-    </script>
+    </script> -->
 @stop

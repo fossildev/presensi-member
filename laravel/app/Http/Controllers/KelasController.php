@@ -108,6 +108,8 @@ class KelasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kelas =  Kelas::findOrFail($id)->delete();
+        // Session::flash('Item successfully deleted');
+        return redirect('kelas');
     }
 }

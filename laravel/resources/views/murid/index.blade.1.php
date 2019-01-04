@@ -54,7 +54,7 @@
 @endsection
 
 @section('script')
-<!-- <div aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal1" role="dialog"
+    <div aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal1" role="dialog"
          tabindex="-1" aria-hidden="true" data-backdrop="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -62,18 +62,18 @@
                     <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
                                 aria-hidden="true"> ×</span></button>
                 </div>
-                <form method="post">
+                <form method="post" action="{{ route('poin.store') }}">
                     <div class="modal-body">
 
-                       
+                        <div class="form-group"><label for=""> Keterangan</label><input
+                                    class="form-control" placeholder="Keterangan" name="keterangan" type="text"></div>
                         <input type="hidden" name="murid_id" value="" id="id">
-                        {!! method_field('delete') !!}
-                         {!! csrf_field() !!}    
+                        {{ csrf_field() }}
 
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" data-dismiss="modal"> Batal</button>
-                        <button class="btn btn-primary" type="submit" > Hapus</button>
+                        <button class="btn btn-danger" type="submit"> Hapus</button>
                     </div>
                 </form>
             </div>
@@ -87,7 +87,7 @@
                     <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
                                 aria-hidden="true"> ×</span></button>
                 </div>
-                <form method="post" action="{{ route('dt-murid') }}">
+                <form method="post" action="{{ route('poin.store') }}">
                     <div class="modal-body">
 
                         <div class="form-group"><label for=""> Keterangan</label><input
@@ -97,13 +97,13 @@
 
                     </div>
                     <div class="modal-footer">
-                    <button class="btn btn-secondary" data-dismiss="modal"> Batal</button>
-                        <button class="btn btn-primary" type="submit" > Hapus</button>
+                        <button class="btn btn-secondary" data-dismiss="modal"> Close</button>
+                        <button class="btn btn-primary" type="submit"> Save changes</button>
                     </div>
                 </form>
             </div>
         </div>
-    </div> -->
+    </div>
     <script>
         $(function () {
             $('#tabel-murid').css('text-transform', 'capitalize').DataTable({
@@ -128,14 +128,6 @@
                 var murid_id = $(this).closest('td').find('#murid-id').val();
                 $('#id').val(murid_id);
                 $('#exampleModal1').modal();
-                $.ajax({
-                    url: url,
-                    type: 'DELETE',
-                    dataType: 'json',
-                    data: {method: '_DELETE', submit: true}
-                }).always(function (data) {
-                    $('#murid-d').DataTable().draw(false);
-                });
 
             })
         });

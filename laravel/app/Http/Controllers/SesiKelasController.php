@@ -108,8 +108,11 @@ class SesiKelasController extends Controller
      * @param  \App\SesiKelas $sesiKelas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SesiKelas $sesiKelas)
+    public function destroy($id)
     {
         //
+        $sesi =  SesiKelas::findOrFail($id)->delete();
+        // Session::flash('Item successfully deleted');
+        return redirect('sesi-kelas');
     }
 }

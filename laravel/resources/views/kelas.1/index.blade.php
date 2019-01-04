@@ -8,7 +8,7 @@
     <div class="element-wrapper">
         <h6 class="element-header">Kelas</h6>
         <div class="element-box">
-            <h5 class="form-header">Riwayat Presensi</h5>
+            <h5 class="form-header">Daftar Kelas</h5>
             <div class="form-desc">Berisi data kelas yang ada
             </div>
             <div class="controls-above-table">
@@ -70,7 +70,7 @@
                     <thead>
                     <tr>
                         <th>ID#</th>
-                        <th>Murid ID</th>
+                        <th>Nama Kelas</th>
                         <th>Keterangan</th>
                         <th>Action</th>
                     </tr>
@@ -78,7 +78,7 @@
                     <tfoot>
                     <tr>
                         <th>ID#</th>
-                        <th>Murid ID</th>
+                        <th>Nama Kelas</th>
                         <th>Keterangan</th>
                         <th>Action</th>
                     </tr>
@@ -102,11 +102,11 @@
                 order: [[0, "asc"]],
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('dt-riwayat') }}',
+                ajax: '{{ route('dt-kelas') }}',
                 columns: [
                     {data: 'id', name: 'id'},
-                    {data: 'murid_id', name: 'murid_id'},
-                    {data: 'created_at', name: 'created_at'},
+                    {data: 'nama_kelas', name: 'nama_kelas'},
+                    {data: 'deskripsi', name: 'deskripsi'},
                     {data: 'action', name: 'action', orderable: false, searchable: false}
                 ]
             });

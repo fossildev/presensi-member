@@ -27,6 +27,9 @@ class Poin extends Model
     protected $table = 'poin';
     protected $fillable = ['murid_id', 'poin', 'keterangan'];
 
+    // protected $table = 'murid';
+    // protected $fillable = ['murid_id', 'nama_lengkap', 'gender', 'nama_panggilan','nim','kelas_mhs',  'alamat', 'no_telepon', 'kelas_id', 'status_murid', 'foto'];
+
     public function murid()
     {
         return $this->belongsTo(Murid::class);

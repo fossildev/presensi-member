@@ -10,6 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('form');
+});
+Route::post('submitForm','MuridController@indexDT');
+Route::get('/downloadPDF/{id}','MuridController@downloadPDF');
 
 Route::get('/', ['uses' => 'PresensiController@index', 'as' => 'presensi']);
 Route::post('/presensi/post', ['uses' => 'PresensiController@presensi', 'as' => 'presensi-post']);
@@ -25,8 +30,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('bulk-add', 'MuridController@bulkAdd')->name('bulk');
     Route::post('bulk-add', 'MuridController@bulkAddPost')->name('bulk');
     Route::get('dt-murid', 'MuridController@indexDT')->name('dt-murid');
+    Route::delete('/murid/{id}', 'MuridController@destroy')->name('murid.destroy');
+    Route::delete('dl-murid', 'MuridController@destroy')->name('dl-murid');
+    Route::get('murid/{id}/delete', ['uses' => 'MuridController@destroy', 'as' => 'murid.delete']);
     Route::get('dt-kelas', 'KelasController@kelasDT')->name('dt-kelas');
-    Route::get('dt-riwayat', 'RiwayatController@riwayatDT')->name('dt-riwayat');
+    Route::get('dt-riwayat', 'RiwayatController@kelasDT')->name('dt-riwayat');
+    Route::get('r-murid', 'MuridController@rDT')->name('r-murid');
     Route::get('dt-sesi', 'SesiKelasController@sesiDT')->name('dt-sesi');
     Route::get('dt-poin-history/{id}', 'PoinController@poinHistoryDT')->name('dt-poin-history');
     Route::post('dz-upload', 'MuridController@dropZoneUpload')->name('dz-upload');

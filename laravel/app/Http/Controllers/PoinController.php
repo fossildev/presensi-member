@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Murid;
-use App\Poin;
+// use App\Poin;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -60,7 +60,8 @@ class PoinController extends Controller
         ]);
         $murid = Murid::find($request->murid_id);
         $murid->poin()->save($poin);
-        return redirect()->back();
+        //  $murid =  Murid::findOrFail($id)->delete();
+        // return redirect()->back();
     }
 
     /**

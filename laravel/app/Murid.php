@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @mixin \Eloquent
  * @property int $id
+ * @property string $murid_id
  * @property string $nama_lengkap
  * @property string $gender
  * @property string|null $nama_panggilan
@@ -36,7 +37,7 @@ use Illuminate\Database\Eloquent\Model;
 class Murid extends Model
 {
     protected $table = 'murid';
-    protected $fillable = ['nama_lengkap', 'gender', 'nama_panggilan','nim','kelas_mhs',  'alamat', 'no_telepon', 'kelas_id', 'status_murid'];
+    protected $fillable = ['murid_id', 'nama_lengkap', 'gender', 'nama_panggilan','nim','kelas_mhs',  'alamat', 'no_telepon', 'kelas_id', 'status_murid', 'foto'];
 
     public function kelas()
     {

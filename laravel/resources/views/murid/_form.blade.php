@@ -99,7 +99,7 @@
     <label> Alamat</label>
     <textarea class="form-control" rows="3" name="alamat">{{ @$murid->alamat }}</textarea>
 </div>
-<!-- <fieldset class="form-group">
+<fieldset class="form-group">
     <legend>
         <span>Foto</span>
     </legend>
@@ -112,7 +112,7 @@
         </div>
     </div>
     <input type="hidden" name="foto" id="foto">
-</fieldset> -->
+</fieldset>
 {{ csrf_field() }}
 <div class="form-buttons-w">
     <button class="btn btn-primary" type="submit"> Submit</button>
