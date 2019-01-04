@@ -41,6 +41,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('dz-upload', 'MuridController@dropZoneUpload')->name('dz-upload');
 });
 
+Route::get('Murid', function(MuridDataTable $dataTable) {
+    return $dataTable->render('murid.index');
+});
+
 
 Route::get('debugging', function () {
     /* $date = \Carbon\Carbon::now()->setTimezone('Asia/Jakarta');

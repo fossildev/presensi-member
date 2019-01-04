@@ -9,7 +9,7 @@
         <h6 class="element-header">Kelas</h6>
         <div class="element-box">
             <h5 class="form-header">Riwayat Presensi</h5>
-            <div class="form-desc">Berisi data kelas yang ada
+            <div class="form-desc">Berisi riwayat presensi member
             </div>
             <div class="controls-above-table">
                 <div class="row">
@@ -69,18 +69,18 @@
                 <table id="tabel-kelas" width="100%" class="table table-hover table-striped table-lightfont">
                     <thead>
                     <tr>
-                        <th>ID#</th>
-                        <th>Murid ID</th>
+                        <!-- <th>ID#</th> -->
+                        <th>Member ID</th>
                         <th>Keterangan</th>
-                        <th>Action</th>
+                        <th>Detail Presensi</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
-                        <th>ID#</th>
-                        <th>Murid ID</th>
+                        <!-- <th>ID#</th> -->
+                        <th>Member ID</th>
                         <th>Keterangan</th>
-                        <th>Action</th>
+                        <th>Detail Presensi</th>
                     </tr>
                     </tfoot>
                     <tbody>
@@ -104,7 +104,7 @@
                 serverSide: true,
                 ajax: '{{ route('dt-riwayat') }}',
                 columns: [
-                    {data: 'id', name: 'id'},
+                    // {data: 'id', name: 'id'},
                     {data: 'murid_id', name: 'murid_id'},
                     {data: 'created_at', name: 'created_at'},
                     {data: 'action', name: 'action', orderable: false, searchable: false}

@@ -9,10 +9,18 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Exceptions\Exception;
+use App\DataTables\UsersDataTable;
 use PDF;
 
 class MuridController extends Controller
 {
+    // tambahan
+    // public function index(UsersDataTable $dataTable)
+    // {
+    //     return $dataTable->render('murid');
+    // }
+
+    // tambahan
     public function downloadPDF($id){
         $murid = Murid::find($id);
   
@@ -53,8 +61,7 @@ class MuridController extends Controller
         try {
             $dt = DataTables::of($murid)
                 ->addColumn('action', function ($res) {
-                    return '<input type="hidden" id="murid-id" value="' . $res->id . '"><a href="' . route('murid.show', $res->id) . '" class="btn btn-outline-primary btn-sm"><i class="os-icon os-icon-edit-3"></i></a> 
-                    <a href="javascript:void(0)"  data-id="'.$res->id.'" class="btn btn-outline-danger btn-sm poin-btn"><i class="os-icon os-icon-ui-15"></i></a>';
+                    return '<input type="hidden" id="murid-id" value="' . $res->id . '"><a href="' . route('murid.show', $res->id) . '" class="btn btn-outline-primary btn-sm"><i class="os-icon os-icon-edit-3"></i></a>';
                 })
                 ->editColumn('kelas_id', function ($res) {
                     return strtoupper($res->kelas->nama_kelas);
@@ -94,6 +101,8 @@ class MuridController extends Controller
     public function index()
     {
         //dd($this->indexDT());
+
+        // return $dataTable->render('murid.index');
 
         return view('murid.index');
     }

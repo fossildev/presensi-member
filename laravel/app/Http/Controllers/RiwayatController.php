@@ -19,7 +19,10 @@ class RiwayatController extends Controller
         try {
             $dt = DataTables::of($presensi)
                 ->addColumn('action', function ($res) {
-                    return '<a href="' . route('kelas.edit', $res->id) . '" class="btn btn-outline-dark btn-sm"><i class="os-icon os-icon-pencil-1"></i> </a> ';
+                    return '<a href="' . route('murid.show', $res->murid_id) . '" class="btn btn-outline-dark btn-sm"><i class="os-icon os-icon-user-male-circle"></i> </a> ';
+                })
+                ->editColumn('created_at', function ($res) {
+                    return Carbon::parse($res->created_at)->diffForHumans();
                 })->make(true);
         } catch (\Exception $exception) {
             return $exception;
@@ -34,7 +37,7 @@ class RiwayatController extends Controller
         try {
             $dt = DataTables::of($murid)
                 ->addColumn('action', function ($res) {
-                    return '<input type="hidden" id="murid-id" value="' . $res->id . '"><a href="' . route('murid.show', $res->id) . '" class="btn btn-outline-primary btn-sm"><i class="os-icon os-icon-edit-3"></i></a> <a href="javascript:void(0)" class="btn btn-outline-danger btn-sm poin-btn"><i class="os-icon os-icon-ui-02"></i></a>';
+                    return '<input type="hidden" id="murid-id" value="' . $res->id . '"><a href="' . route('murid.show', $res->id) . '" class="btn btn-outline-primary btn-sm"><i class="os-icon os-icon-user-male-circle"></i></a> <a href="javascript:void(0)" class="btn btn-outline-danger btn-sm poin-btn"><i class="os-icon os-icon-user-male-circle"></i></a>';
                 })
                 ->editColumn('kelas_id', function ($res) {
                     return strtoupper($res->kelas->nama_kelas);
