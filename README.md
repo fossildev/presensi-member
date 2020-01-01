@@ -22,5 +22,3 @@ Kalau kamera tidak dapat muncul, bisa menggunakan browser chrome. Untuk generate
 * [Yajra Datatables](https://github.com/yajra/laravel-datatables)
 * [Doughnut and Pie Charts](https://www.chartjs.org/docs/latest/charts/doughnut.html)
 
-# Credits
-* Edy Tama Kusumajaya - 2018
